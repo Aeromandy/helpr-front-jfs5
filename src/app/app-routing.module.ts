@@ -36,6 +36,7 @@ const routes: Routes = [
     path: 'faq', 
     loadChildren: () => import('./views/faq/faq.module').then(m => m.FaqModule) 
   },
+  { path: 'futuros-candidatos', loadChildren: () => import('./views/futuros-candidatos/futuros-candidatos.module').then(m => m.FuturosCandidatosModule) },
 ];
 
 @NgModule({
