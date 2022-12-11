@@ -45,7 +45,7 @@ export class CargoService {
       })
     );
   }
-
+  
   public delete(id: number): Observable<Cargo> {
     return this.http.delete<Cargo>(`${API_CONFIG.baseUrl}/cargos/${id}`).pipe(
       catchError(error => {
@@ -55,6 +55,7 @@ export class CargoService {
       })
     );
   }
+
 }
 
   
