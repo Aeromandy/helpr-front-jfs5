@@ -25,6 +25,7 @@ export class CargoService {
       })
     );
   }
+  
 
   public findById(id: string): Observable<Cargo> {
     return this.http.get<Cargo>(`${API_CONFIG.baseUrl}/cargos/${id}`).pipe(
@@ -45,11 +46,36 @@ export class CargoService {
       })
     );
   }
+
+  /* public update(cargo: Cargo): Observable<Cargo> {
+    return this.http.put<Cargo>(`${API_CONFIG.baseUrl}/cargos/${idCargo}`, cargo).pipe(
+      catchError(error => {
+        this.toastr.error("Erro ao editar cargo.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  } */
   
   public delete(id: number): Observable<Cargo> {
     return this.http.delete<Cargo>(`${API_CONFIG.baseUrl}/cargos/${id}`).pipe(
       catchError(error => {
         this.toastr.error("Erro ao excluir cargo.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
+
+  public update(cargo: Cargo): Observable<Cargo> {
+    const data = {
+      nome: cargo.nome,
+      descricao: cargo.descricao,
+      salario: cargo.salario
+    }
+    return this.http.put<Cargo>(`${API_CONFIG.baseUrl}/cargos/${cargo.idCargo}`, data).pipe(
+      catchError(error => {
+        this.toastr.error("Erro ao editar cargo.");
         console.error(error);
         return EMPTY;
       })
