@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CargosComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome', 'descricao', 'salario', 'excluir'];
+  displayedColumns: string[] = ['id', 'nome', 'descricao', 'salario', 'editar', 'excluir'];
   cargo: Cargo[] = [];
   dataSource = new MatTableDataSource<Cargo>(this.cargo);
 

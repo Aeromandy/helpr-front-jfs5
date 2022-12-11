@@ -8,12 +8,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { NewCargoComponent } from './new-cargo/new-cargo.component';
 import { MatTableModule } from '@angular/material/table';
+import { EditCargoComponent } from './edit-cargo/edit-cargo.component';
 
 
 @NgModule({
   declarations: [
     CargosComponent,
-    NewCargoComponent
+    NewCargoComponent,
+    EditCargoComponent
   ],
   imports: [
     CommonModule,
