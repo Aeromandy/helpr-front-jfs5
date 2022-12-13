@@ -4,6 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateFuturoCandidatoComponent } from '../create-futuro-candidato/create-futuro-candidato.component';
+
 
 @Component({
   selector: 'app-login',
@@ -11,6 +14,15 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  /* firstFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
+  secondFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  isLinear = false; */
+  
+  
 
   public formLogin: FormGroup;
 
@@ -18,7 +30,10 @@ export class LoginComponent implements OnInit {
     formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private _formBuilder: FormBuilder,
+    public dialog: MatDialog,
+   
   ) {
     this.formLogin = formBuilder.group({
       email: ["", [Validators.required, Validators.email]],
@@ -26,6 +41,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+ 
   ngOnInit(): void {
   }
 
@@ -41,5 +57,15 @@ export class LoginComponent implements OnInit {
     else {
       this.toastr.error("Dados inválidos.");
     }
+  }
+
+  addCandidato(): void {
+    const dialogRef = this.dialog.open(CreateFuturoCandidatoComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }
