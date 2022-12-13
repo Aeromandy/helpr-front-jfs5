@@ -3,10 +3,11 @@
     height: 100%;
     background: #ad8bc2;
     background: linear-gradient(45deg, rgba(173,139,194,1) 0%, rgba(250,141,235,1) 100%);
-
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 }
 
 .login-container form {
@@ -20,3 +21,23 @@
     text-align: center;
     font-size: 30px;
 }
+
+.mat-stepper-horizontal {
+    margin-top: 8px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.mat-mdc-form-field {
+    margin-top: 16px;
+}
+
+#toggle-linear {
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#btn {
+    margin-top: 10px; 
+}
+

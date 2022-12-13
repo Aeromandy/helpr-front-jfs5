@@ -23,5 +23,21 @@ export class FuturoCandidatoService {
     )
   }
 
+  public create(futuroCandidato: FuturoCandidato): Observable<FuturoCandidato> {
+    const data = {
+      nome: futuroCandidato.nome,
+      email: futuroCandidato.email,
+      descricao: futuroCandidato.descricao,
+      setor: futuroCandidato.setor
+    }
+    return this.http.post<FuturoCandidato>(`${API_CONFIG.baseUrl}/futuroCandidatos`, data).pipe(
+      catchError(error => {
+        this.toastr.error("Erro ao criar novo novo candidato.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
+
   
 }
