@@ -14,29 +14,38 @@ const routes: Routes = [
   },
   {
     path: 'clientes',
-    loadChildren: () => import('./views/clientes/clientes.module').then(m => m.ClientesModule)
+    loadChildren: () => import('./views/clientes/clientes.module').then(m => m.ClientesModule), 
+    canActivate: [AuthGuard]
   },
   {
     path: 'chamados',
-    loadChildren: () => import('./views/chamados/chamados.module').then(m => m.ChamadosModule)
+    loadChildren: () => import('./views/chamados/chamados.module').then(m => m.ChamadosModule),
+    canActivate: [AuthGuard]
   },
   { 
     path: 'funcionarios', 
-    loadChildren: () => import('./views/funcionarios/funcionarios.module').then(m => m.FuncionariosModule) 
+    loadChildren: () => import('./views/funcionarios/funcionarios.module').then(m => m.FuncionariosModule),
+    canActivate: [AuthGuard] 
   },
   {
     path: 'cargos',
-    loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule)
+    loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule),
+    canActivate: [AuthGuard]
   },
   { 
     path: 'futuros-clientes', 
-    loadChildren: () => import('./views/futuros-clientes/futuros-clientes.module').then(m => m.FuturosClientesModule) 
+    loadChildren: () => import('./views/futuros-clientes/futuros-clientes.module').then(m => m.FuturosClientesModule),
+    canActivate: [AuthGuard]
+  },
+  { 
+    path: 'futuros-candidatos', 
+    loadChildren: () => import('./views/futuros-candidatos/futuros-candidatos.module').then(m => m.FuturosCandidatosModule),
+    canActivate: [AuthGuard]
   },
   { 
     path: 'faq', 
     loadChildren: () => import('./views/faq/faq.module').then(m => m.FaqModule) 
-  },
-  { path: 'futuros-candidatos', loadChildren: () => import('./views/futuros-candidatos/futuros-candidatos.module').then(m => m.FuturosCandidatosModule) },
+  }
 ];
 
 @NgModule({
